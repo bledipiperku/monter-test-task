@@ -1,5 +1,6 @@
 "use client";
 
+import DialogBox from "@/components/DialogBox";
 import React, { FC, useState } from "react";
 
 const Home: FC = () => {
@@ -18,7 +19,7 @@ const Home: FC = () => {
         Recently Generated Report
       </button>
 
-      {showDialog && <p>test</p>}
+      {showDialog && <DialogBox isOpen={showDialog}>Dialog</DialogBox>}
     </main>
   );
 };
