@@ -9,6 +9,8 @@ const config: Config = {
   theme: {
     colors: {
       primary: "#ff0000",
+      secondary: "orange",
+      grayText: "#929292",
       white: "#ffffff",
       black: "#000000",
     },
