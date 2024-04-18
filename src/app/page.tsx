@@ -16,7 +16,7 @@ const Home: FC = () => {
         className="px-4 py-2 border rounded hover:bg-black hover:text-white transition-colors"
         onClick={handleDialogShow}
       >
-        Recently Generated Report
+        Recently Generated Reports
       </button>
 
       {showDialog && (
@@ -24,7 +24,9 @@ const Home: FC = () => {
           <Table
             title="Recently Generated Reports"
             handleClose={handleDialogShow}
-          />
+          >
+            Content
+          </Table>
         </DialogBox>
       )}
     </main>

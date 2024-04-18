@@ -66,12 +66,15 @@ const Pagination: React.FC<IPaginationProps> = ({}) => {
         <div className="flex border-[1px] rounded-lg py-[3px] px-3 items-center gap-2 border-grayText/20 text-black/70">
           {dropDownVisible && (
             <div className="flex flex-col absolute bg-white border rounded-lg ml-[-8px]">
-              {[...Array(10)].map((_, index) => (
+              {[...Array(10)].map((_, index, array) => (
                 <div
                   key={index}
-                  className={`py-2 px-4 cursor-pointer hover:bg-secondary/20  ${
-                    pgSize === index + 1 ? "bg-secondary text-white" : ""
-                  }`}
+                  className={`
+                    py-2 px-4 cursor-pointer hover:bg-secondary/20  
+                    ${pgSize === index + 1 ? "bg-secondary text-white" : ""}
+                    ${index === 0 ? "rounded-t-[7px]" : ""}
+                    ${index === array.length - 1 ? "rounded-b-[7px]" : ""}
+                `}
                   onClick={() => handleSelectPageSize(index + 1)}
                 >
                   <div>{index + 1}</div>

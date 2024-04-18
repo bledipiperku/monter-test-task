@@ -6,9 +6,10 @@ import { Pagination } from "@/components";
 interface ITableProps {
   title: string;
   handleClose: () => void;
+  children: React.ReactNode;
 }
 
-const Table: React.FC<ITableProps> = ({ title, handleClose }) => {
+const Table: React.FC<ITableProps> = ({ title, handleClose, children }) => {
   return (
     <div>
       <div className="flex justify-between items-center my-5 mx-7">
@@ -37,7 +38,7 @@ const Table: React.FC<ITableProps> = ({ title, handleClose }) => {
           <p className="flex-grow">Report Name</p>
           <p className="text-center">Download</p>
         </div>
-        Content
+        {children}
         <Pagination />
       </div>
     </div>

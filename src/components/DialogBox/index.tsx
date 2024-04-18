@@ -12,7 +12,7 @@ const DialogBox: React.FC<IDialogBoxProps> = ({ isOpen, children }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
-      <div className="w-[800px] bg-white rounded shadow-lg">{children}</div>
+      <div className="w-[800px] bg-white rounded-lg shadow-lg">{children}</div>
     </div>
   );
 };
