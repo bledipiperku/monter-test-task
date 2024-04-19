@@ -7,9 +7,21 @@ interface ITableProps {
   title: string;
   handleClose: () => void;
   children: React.ReactNode;
+  pgNumber: number;
+  pgSize: number;
+  setPgNumber: (pageNumber: number) => void;
+  setPgSize: (size: number) => void;
 }
 
-const Table: React.FC<ITableProps> = ({ title, handleClose, children }) => {
+const Table: React.FC<ITableProps> = ({
+  title,
+  handleClose,
+  children,
+  pgNumber,
+  pgSize,
+  setPgNumber,
+  setPgSize,
+}) => {
   return (
     <div>
       <div className="flex justify-between items-center my-5 mx-7">
@@ -38,8 +50,15 @@ const Table: React.FC<ITableProps> = ({ title, handleClose, children }) => {
           <p className="flex-grow">Report Name</p>
           <p className="text-center">Download</p>
         </div>
+
         {children}
-        <Pagination />
+
+        <Pagination
+          pgNumber={pgNumber}
+          pgSize={pgSize}
+          setPgNumber={setPgNumber}
+          setPgSize={setPgSize}
+        />
       </div>
     </div>
   );

@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronFirst, ChevronLast } from "lucide-react";
 
-interface IPaginationProps {}
+interface IPaginationProps {
+  pgNumber: number;
+  pgSize: number;
+  setPgNumber: (pageNumber: number) => void;
+  setPgSize: (size: number) => void;
+}
 
-const Pagination: React.FC<IPaginationProps> = ({}) => {
-  const [pgNumber, setPgNumber] = useState<number>(1);
-  const [pgSize, setPgSize] = useState<number>(3);
+const Pagination: React.FC<IPaginationProps> = ({
+  pgNumber,
+  pgSize,
+  setPgNumber,
+  setPgSize,
+}) => {
   const [dropDownVisible, setDropDownVisibility] = useState<boolean>(false);
 
   const handleSelectPageSize = (size: number) => {
@@ -33,9 +41,9 @@ const Pagination: React.FC<IPaginationProps> = ({}) => {
 
   return (
     <div className="flex py-4 gap-2 text-[15px] justify-center items-center text-sm font-semibold text-grayText">
-      <div className="flex py-4 gap-2 text-[15px] justify-center items-center">
+      <div className="flex py-4 gap-2 justify-center items-center">
         <button
-          className="flex gap-1 items-center"
+          className="flex gap-1 items-center mr-[10px]"
           role="button"
           onClick={() => handlePageChange(pgNumber - 1)}
           disabled={pgNumber - 1 < 1}
@@ -47,7 +55,7 @@ const Pagination: React.FC<IPaginationProps> = ({}) => {
           renderPaginationButton(index + 1, index + 1)
         )}
         <button
-          className="flex gap-1 items-center"
+          className="flex gap-1 items-center ml-[10px]"
           role="button"
           onClick={() => handlePageChange(pgNumber + 1)}
           disabled={pgNumber + 1 > 5}
@@ -65,19 +73,19 @@ const Pagination: React.FC<IPaginationProps> = ({}) => {
         <p>Rows per page</p>
         <div className="flex border-[1px] rounded-lg py-[3px] px-3 items-center gap-2 border-grayText/20 text-black/70">
           {dropDownVisible && (
-            <div className="flex flex-col absolute bg-white border rounded-lg ml-[-8px]">
-              {[...Array(10)].map((_, index, array) => (
+            <div className="flex flex-col absolute bg-white border rounded-lg ml-[-13px]">
+              {[10, 25, 50, 100].map((size, index, Array) => (
                 <div
-                  key={index}
+                  key={size}
                   className={`
                     py-2 px-4 cursor-pointer hover:bg-secondary/20  
-                    ${pgSize === index + 1 ? "bg-secondary text-white" : ""}
+                    ${pgSize === size ? "bg-secondary text-white" : ""}
                     ${index === 0 ? "rounded-t-[7px]" : ""}
-                    ${index === array.length - 1 ? "rounded-b-[7px]" : ""}
-                `}
-                  onClick={() => handleSelectPageSize(index + 1)}
+                    ${index === Array.length - 1 ? "rounded-b-[7px]" : ""}
+                  `}
+                  onClick={() => handleSelectPageSize(size)}
                 >
-                  <div>{index + 1}</div>
+                  <div>{size}</div>
                 </div>
               ))}
             </div>
