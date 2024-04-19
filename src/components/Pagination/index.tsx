@@ -5,7 +5,7 @@ interface IPaginationProps {}
 
 const Pagination: React.FC<IPaginationProps> = ({}) => {
   const [pgNumber, setPgNumber] = useState<number>(1);
-  const [pgSize, setPgSize] = useState<number>(6);
+  const [pgSize, setPgSize] = useState<number>(3);
   const [dropDownVisible, setDropDownVisibility] = useState<boolean>(false);
 
   const handleSelectPageSize = (size: number) => {

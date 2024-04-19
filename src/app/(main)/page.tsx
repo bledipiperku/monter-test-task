@@ -1,7 +1,8 @@
 "use client";
 
-import { DialogBox, Table } from "@/components";
+import { DialogBox } from "@/components";
 import React, { FC, useState } from "react";
+import RecentlyGeneratedReports from "./recently-generated-reports";
 
 const Home: FC = () => {
   const [showDialog, setShowDialog] = useState<boolean>(false);
@@ -21,12 +22,7 @@ const Home: FC = () => {
 
       {showDialog && (
         <DialogBox isOpen={showDialog}>
-          <Table
-            title="Recently Generated Reports"
-            handleClose={handleDialogShow}
-          >
-            Content
-          </Table>
+          <RecentlyGeneratedReports handleDialogShow={handleDialogShow} />
         </DialogBox>
       )}
     </main>
