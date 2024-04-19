@@ -1,7 +1,8 @@
 "use client";
 
-import { DialogBox } from "@/components";
 import React, { FC, useState } from "react";
+
+import { DialogBox } from "@/components";
 import RecentlyGeneratedReports from "./recently-generated-reports";
 
 const Home: FC = () => {
