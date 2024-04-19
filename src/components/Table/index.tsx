@@ -23,7 +23,7 @@ const Table: React.FC<ITableProps> = ({
   setPgSize,
 }) => {
   return (
-    <div>
+    <>
       <div className="flex justify-between items-center my-5 mx-7">
         <div className="block" />
 
@@ -44,7 +44,7 @@ const Table: React.FC<ITableProps> = ({
         </div>
       </div>
 
-      <div>
+      <>
         <div className="bg-black/5 flex items-center text-[15px] font-semibold text-black/50 py-1 px-7">
           <p className="w-32 text-left">Date</p>
           <p className="flex-grow">Report Name</p>
@@ -59,8 +59,8 @@ const Table: React.FC<ITableProps> = ({
           setPgNumber={setPgNumber}
           setPgSize={setPgSize}
         />
-      </div>
-    </div>
+      </>
+    </>
   );
 };
 
